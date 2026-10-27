@@ -27,9 +27,34 @@ function mostrarPersonajes(listaPersonajes) {
        <p>Ojos: ${personaje.eye_color}</p>
        <p>Año: ${personaje.birth_year}</p>
        <p>Género: ${personaje.gender}</p>
+       <button class="boton" id="botonPersonajes">Más info</button>
+
+       
 
        </div>
-        `   
+        ` 
+
+        const boton = document.querySelector(".boton")
+const fondo = document.querySelector(".fondoPersonaje")
+boton.addEventListener("click", () => {
+fondo.style.display = "flex"
+}) 
+         
     });
 }
 
+
+
+
+
+
+const busqueda = document.getElementById("busqueda")
+
+function buscar() {
+    let personajesBuscados = personajes.filter(personaje => {
+        return  personaje.name.toLocaleLowerCase().includes(busqueda.value.toLowerCase())
+    })
+    contenedor.innerHTML = ""
+    mostrarPersonajes(personajesBuscados)
+}
+busqueda.addEventListener("input", buscar)
