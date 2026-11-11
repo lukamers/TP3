@@ -1,4 +1,7 @@
 fetch ("https://swapi.info/api/people")
+fetch ("https://swapi.info/api/films")
+fetch ("https://swapi.info/api/vehicles")
+fetch ("https://swapi.info/api/starships")
 .then(response => response.json())
 .then(data => {
     console.log(data)
@@ -21,28 +24,46 @@ function mostrarPersonajes(listaPersonajes) {
        <div class = "card">
 
        <h2>${personaje.name}</h2>
-       <p>Altura: ${personaje.height}cm</p>
-       <p>Pelo: ${personaje.hair_color}</p>
-       <p>Piel: ${personaje.skin_color}</p>
-       <p>Ojos: ${personaje.eye_color}</p>
-       <p>Año: ${personaje.birth_year}</p>
+  
        <p>Género: ${personaje.gender}</p>
        <button class="boton" id="botonPersonajes">Más info</button>
 
-       
-
        </div>
+
+       
         ` 
 
-        const boton = document.querySelector(".boton")
+const botones = document.querySelectorAll(".boton")
 const fondo = document.querySelector(".fondoPersonaje")
-boton.addEventListener("click", () => {
-fondo.style.display = "flex"
-}) 
-         
-    });
-}
+const info = document.querySelector(".infoPersonaje")
 
+botones.forEach((boton, i) => {
+    boton.addEventListener("click", () => {
+        let personaje = listaPersonajes[i]
+
+        info.innerHTML =  `
+        <h2>${personaje.name}</h2>
+        <p>Altura: ${personaje.height}cm</p>
+        <p>Pelo: ${personaje.hair_color}</p>
+        <p>Piel: ${personaje.skin_color}</p>
+        <p>Ojos: ${personaje.eye_color}</p>
+        <p>Año: ${personaje.birth_year}</p>
+        <p>Género: ${personaje.gender}</p>
+    `
+        if (fondo.style.display === "none"){
+            fondo.style.display = "flex"
+        
+        
+        }
+        else {
+        fondo.style.display = "none"
+        }
+        }) 
+       
+    })
+})
+
+}
 
 
 
