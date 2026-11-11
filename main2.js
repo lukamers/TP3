@@ -25,44 +25,15 @@ function mostrarPersonajes(listaPersonajes) {
        <p>Género: ${personaje.gender}</p>
        <p>Estatus: ${personaje.status}</p>
         <p>Especie: ${personaje.species}</p>
-    <img src="${personaje.image}">
-       <button class="boton" id="botonPersonajes">Más info</button>
-
+    <img class = "img" src="${personaje.image}">
+ 
        </div>
 
        
         ` 
 
-const botones = document.querySelectorAll(".boton")
-const fondo = document.querySelector(".fondoPersonaje")
-const info = document.querySelector(".infoPersonaje")
-
-botones.forEach((boton, i) => {
-    boton.addEventListener("click", () => {
-        let personaje = listaPersonajes[i]
-
-        info.innerHTML =  `
-        <h2>${personaje.name}</h2>
-        <p>Estatus: ${personaje.status}</p>
-        <p>Especie: ${personaje.species}</p>
-    <img src="${personaje.image}">
-    `
-        if (fondo.style.display === "none"){
-            fondo.style.display = "flex"
-        
-        
-        }
-        else {
-        fondo.style.display = "none"
-        }
-        }) 
-       
     })
-})
-
 }
-
-
 
 
 
