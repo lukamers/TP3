@@ -1,7 +1,4 @@
 fetch ("https://swapi.info/api/people")
-fetch ("https://swapi.info/api/films")
-fetch ("https://swapi.info/api/vehicles")
-fetch ("https://swapi.info/api/starships")
 .then(response => response.json())
 .then(data => {
     console.log(data)
